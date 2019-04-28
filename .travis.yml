@@ -5,7 +5,7 @@ services:
 
 script:
  - docker run --mount src=${TRAVIS_BUILD_DIR}/dir1,dst=/usr/src/tex,type=bind paperist/alpine-texlive-ja
-  /bin/sh -c "latexmk -C main.tex"
+  /bin/sh -c "pwd; latexmk -C main.tex"
  - docker run --mount src=${TRAVIS_BUILD_DIR}/dir2,dst=/usr/src/tex,type=bind paperist/alpine-texlive-ja
   /bin/sh -c "latexmk -C main.tex"
 
