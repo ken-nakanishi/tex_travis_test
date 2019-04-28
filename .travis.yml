@@ -4,8 +4,8 @@ services:
   - docker
 
 script:
- - docker run --mount src=${TRAVIS_BUILD_DIR}/dir1,target=/usr/src/tex,type=bind paperist/alpine-texlive-ja
-  /bin/sh -c "latexmk main.tex"
- - docker run --mount src=${TRAVIS_BUILD_DIR}/dir2,target=/usr/src/tex,type=bind paperist/alpine-texlive-ja
-  /bin/sh -c "latexmk main.tex"
+ - docker run --mount src=${TRAVIS_BUILD_DIR}/dir1,dst=/usr/src/tex,type=bind paperist/alpine-texlive-ja
+  /bin/sh -c "latexmk -C main.tex"
+ - docker run --mount src=${TRAVIS_BUILD_DIR}/dir2,dst=/usr/src/tex,type=bind paperist/alpine-texlive-ja
+  /bin/sh -c "latexmk -C main.tex"
 
